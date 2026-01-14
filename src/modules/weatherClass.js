@@ -42,7 +42,7 @@ function extractForecastedConditions(days) {
     description: day.description,
     precip: day.precip,
     precipProb: day.precipprob,
-    precipType: day.preciptype[day.preciptype.length - 1],
+    precipType: day.preciptype,
     snow: day.snow,
     snowDepth: day.snowdepth,
     windDirection: day.winddir,
