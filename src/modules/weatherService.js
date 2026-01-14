@@ -3,6 +3,7 @@ const API_LINK = 'https://weather.visualcrossing.com/VisualCrossingWebServices/r
 
 /**
  * Fetches weather data from the VisualCrossing API.
+ * This function will retrieve the next 7 days worth of forecast data.
  * 
  * @param {string} location - The location to fetch weather data for.
  * @returns {Promise<Object>} Weather data object from the API.
@@ -14,7 +15,7 @@ export async function getWeatherData(location) {
         throw new Error('Location cannot be blank.');
     }
 
-    const request = API_LINK + location + `?key=${API_KEY}`;
+    const request = API_LINK + location + '/next7days/' + `?key=${API_KEY}`;
 
     const result = await fetch(request);
     if (!result.ok) {
