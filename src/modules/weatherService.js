@@ -10,7 +10,7 @@ const API_LINK = 'https://weather.visualcrossing.com/VisualCrossingWebServices/r
  * @throws {Error} When the API request fails.
  */
 export async function getWeatherData(location) {
-    if (!location || location.trim()) {
+    if (!location || !location.trim()) {
         throw new Error('Location cannot be blank.');
     }
 
