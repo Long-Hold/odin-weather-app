@@ -1,6 +1,7 @@
 const API_KEY = 'SYJEG9VMFX7C945UL7FBJ8JH7';
 const API_LINK = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/';
-
+const API_GROUPS = '&elements=add:aqius,remove:datetimeEpoch,remove:dew,remove:feelslikemax,remove:feelslikemin,remove:solarenergy,remove:solarradiation,remove:stations';
+const UNIT_GROUP = '&unitGroup=metric';
 /**
  * Fetches weather data from the VisualCrossing API.
  * This function will retrieve the next 7 days worth of forecast data.
@@ -15,7 +16,7 @@ export async function getWeatherData(location) {
         throw new Error('Location cannot be blank.');
     }
 
-    const request = API_LINK + location + '/next7days/' + `?key=${API_KEY}`;
+    const request = API_LINK + location + '/next7days/' + `?key=${API_KEY}` + UNIT_GROUP + API_GROUPS;
 
     const result = await fetch(request);
     if (!result.ok) {
