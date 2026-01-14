@@ -9,6 +9,7 @@ form.addEventListener("submit", async (event) => {
 
   try {
     const weatherData = await getWeatherData(location);
+    console.log(weatherData);
     const weatherObject = parseWeatherJson(weatherData);
     console.log(weatherObject);
   } catch (error) {
