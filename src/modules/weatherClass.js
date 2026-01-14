@@ -38,7 +38,7 @@ function extractForecastedConditions(days) {
         tempMin: day.tempmin,
         feelsLike: day.feelslike,
         humidity: day.humidity,
-        conditions: day.conditionns,
+        conditions: day.conditions,
         description: day.description,
         precip: day.precip,
         precipProb: day.precipprob,
