@@ -1,3 +1,4 @@
+import { setupFormListener } from "./modules/locationFormHandler";
 import { parseWeatherJson } from "./modules/weatherClass";
 import { getWeatherData } from "./modules/weatherService";
 
@@ -12,3 +13,5 @@ button.addEventListener('click', async () => {
         console.error(`An error was caught while retrieving weather data. ${error}`);
     }
 });
+
+setupFormListener();
