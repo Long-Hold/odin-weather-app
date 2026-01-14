@@ -1,17 +1,17 @@
-import { setupFormListener } from "./modules/locationFormHandler";
 import { parseWeatherJson } from "./modules/weatherClass";
 import { getWeatherData } from "./modules/weatherService";
 
-const button = document.querySelector('button');
-button.addEventListener('click', async () => {
+const form = document.querySelector('form');
+form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const location = formData.get('location').trim();
+
     try {
-        const weatherData = await getWeatherData('Toronto');
-        console.log(weatherData);
+        const weatherData = await getWeatherData(location);
         const weatherObject = parseWeatherJson(weatherData);
         console.log(weatherObject);
-    } catch(error) {
+    } catch (error) {
         console.error(`An error was caught while retrieving weather data. ${error}`);
     }
 });
-
-setupFormListener();
