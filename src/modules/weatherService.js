@@ -18,9 +18,11 @@ export async function getWeatherData(location) {
     throw new Error("Location cannot be blank.");
   }
 
+  const encodedLocation = encodeURI(location);
+
   const request =
     API_LINK +
-    location +
+    encodedLocation +
     "/next7days/" +
     `?key=${API_KEY}` +
     UNIT_GROUP +
