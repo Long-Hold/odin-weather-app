@@ -2,7 +2,7 @@ const API_KEY = "SYJEG9VMFX7C945UL7FBJ8JH7";
 const API_LINK =
   "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/";
 const API_GROUPS =
-  "&elements=add:aqius,remove:datetimeEpoch,remove:dew,remove:feelslikemax,remove:feelslikemin,remove:solarenergy,remove:solarradiation,remove:stations";
+  "&elements=add:resolvedAddress,remove:cloudcover,remove:datetimeEpoch,remove:dew,remove:feelslikemax,remove:feelslikemin,remove:moonphase,remove:precipcover,remove:pressure,remove:severerisk,remove:snowdepth,remove:solarenergy,remove:solarradiation,remove:stations,remove:uvindex,remove:visibility";
 const UNIT_GROUP = "&unitGroup=metric";
 /**
  * Fetches weather data from the VisualCrossing API.
