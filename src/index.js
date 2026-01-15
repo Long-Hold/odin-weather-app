@@ -11,7 +11,8 @@ form.addEventListener("submit", async (event) => {
     const weatherData = await getWeatherData(location);
     console.log(weatherData);
     const weatherObject = parseWeatherJson(weatherData);
-    console.log(weatherObject);
+    console.log("Current Conditions: ", weatherObject.current);
+    console.log("Forecasted Conditions: ", weatherObject.forecasted);
   } catch (error) {
     console.error(
       `An error was caught while retrieving weather data. ${error}`,
