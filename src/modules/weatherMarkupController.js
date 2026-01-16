@@ -3,9 +3,9 @@ const currentWeatherCard = document.querySelector('.current-data-card');
 /**
  * Updates the DOM element that represents current weather data with information
  * from the current weather object.
- * @param {Object} currentWeatherData 
+ * @param {Object} weatherData 
  */
-export function displayCurrentWeatherData(currentWeatherData) {
+export function displayCurrentWeatherData(weatherData) {
     const address = currentWeatherCard.querySelector('.address');
     const description = currentWeatherCard.querySelector('.description');
     const icon = currentWeatherCard.querySelector('img');
@@ -25,4 +25,25 @@ export function displayCurrentWeatherData(currentWeatherData) {
     const windSpeed = currentWeatherCard.querySelector('.wind-speed');
     const windDirection = currentWeatherCard.querySelector('.wind-direction');
     const windGust = currentWeatherCard.querySelector('.wind-gust');
+
+    address.textContent = weatherData.address;
+    description.textContent = weatherData.description;
+    // TODO: Fetch the corresponding icon here
+
+    const current = weatherData.current;
+    temperature.textContent = current.temp;
+    conditions.textContent = current.conditions;
+    humidity.textContent = current.humidity;
+
+    precip.textContent = current.precip;
+    precipProb.textContent = current.precpProb;
+    // precipType.textContent = current.precpType[0];
+    snow.textContent = current.snow;
+
+    sunrise.textContent = current.sunrise;
+    sunset.textContent = current.sunset;
+
+    windSpeed.textContent = current.windSpeed;
+    windDirection.textContent = current.windDirection;
+    windGust.textContent = current.windGust;
 }
