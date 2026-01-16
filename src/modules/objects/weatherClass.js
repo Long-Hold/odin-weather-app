@@ -1,4 +1,4 @@
-import { formatTo12Hour } from "../utils/dataFormatUtils";
+import { formatTo12Hour, degreesToCardinal } from "../utils/dataFormatUtils";
 
 export function parseWeatherJson(weatherData) {
   return {
@@ -20,10 +20,10 @@ function extractCurrentConditions(current) {
     precipProb: current.precipprob,
     precipType: current.preciptype,
     snow: current.snow,
-    sunrise: current.sunrise,
-    sunset: current.sunset,
+    sunrise: formatTo12Hour(current.sunrise),
+    sunset: formatTo12Hour(current.sunset),
     temp: current.temp,
-    windDirection: current.winddir,
+    windDirection: degreesToCardinal(current.winddir),
     windGust: current.windgust,
     windSpeed: current.windspeed,
   };
@@ -32,7 +32,7 @@ function extractCurrentConditions(current) {
 function extractForecastedConditions(days) {
   return days.map((day) => ({
     conditions: day.conditions,
-    date: day.datetime,
+    date: formatTo12Hour(day.datetime),
     description: day.description,
     feelsLike: day.feelslike,
     humidity: day.humidity,
@@ -41,12 +41,12 @@ function extractForecastedConditions(days) {
     precipProb: day.precipprob,
     precipType: day.preciptype,
     snow: day.snow,
-    sunrise: day.sunrise,
-    sunset: day.sunset,
+    sunrise: formatTo12Hour(day.sunrise),
+    sunset: formatTo12Hour(day.sunset),
     temp: day.temp,
     tempMax: day.tempmax,
     tempMin: day.tempmin,
-    windDirection: day.winddir,
+    windDirection: degreesToCardinal(day.winddir),
     windGust: day.windgust,
     windSpeed: day.windspeed,
   }));
