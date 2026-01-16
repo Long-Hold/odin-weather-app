@@ -1,3 +1,5 @@
+import { formatTo12Hour } from "../utils/dataFormatUtils";
+
 export function parseWeatherJson(weatherData) {
   return {
     address: weatherData.address,
@@ -10,7 +12,7 @@ export function parseWeatherJson(weatherData) {
 function extractCurrentConditions(current) {
   return {
     conditions: current.conditions,
-    datetime: current.datetime,
+    datetime: formatTo12Hour(current.datetime),
     feelslike: current.feelslike,
     humidity: current.humidity,
     icon: current.icon,
