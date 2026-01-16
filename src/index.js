@@ -1,4 +1,4 @@
-import { parseWeatherJson } from "./modules/weatherClass";
+import { parseWeatherJson } from "./modules/objects/weatherClass";
 import { displayCurrentWeatherData } from "./modules/weatherMarkupController";
 import { getWeatherData } from "./modules/weatherService";
 
