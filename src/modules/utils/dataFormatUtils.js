@@ -43,3 +43,8 @@ export function degreesToCardinal(degrees) {
     const index = Math.round((degrees % 360) / degreePerDirection);
     return directions[index % directions.length];
 }
+
+export function titlecaseAddress(text) {
+    const cleanText = text.trim();
+    return cleanText.charAt(0).toUpperCase() + cleanText.slice(1);
+}
