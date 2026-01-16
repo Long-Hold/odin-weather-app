@@ -1,8 +1,8 @@
-import { formatTo12Hour, degreesToCardinal } from "../utils/dataFormatUtils";
+import { formatTo12Hour, degreesToCardinal, titlecaseAddress } from "../utils/dataFormatUtils";
 
 export function parseWeatherJson(weatherData) {
   return {
-    address: weatherData.address,
+    address: titlecaseAddress(weatherData.address),
     description: weatherData.description,
     current: extractCurrentConditions(weatherData.currentConditions),
     forecasted: extractForecastedConditions(weatherData.days),
@@ -32,7 +32,7 @@ function extractCurrentConditions(current) {
 function extractForecastedConditions(days) {
   return days.map((day) => ({
     conditions: day.conditions,
-    date: formatTo12Hour(day.datetime),
+    date: day.datetime,
     description: day.description,
     feelsLike: day.feelslike,
     humidity: day.humidity,
