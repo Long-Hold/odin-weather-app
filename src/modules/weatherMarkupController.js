@@ -8,6 +8,7 @@ const currentWeatherCard = document.querySelector('.current-data-card');
 export function displayCurrentWeatherData(weatherData) {
     const address = currentWeatherCard.querySelector('.address');
     const description = currentWeatherCard.querySelector('.description');
+    const currentTime = currentWeatherCard.querySelector('.current-time');
     const icon = currentWeatherCard.querySelector('img');
     
     const temperature = currentWeatherCard.querySelector('.temperature');
@@ -31,6 +32,7 @@ export function displayCurrentWeatherData(weatherData) {
     // TODO: Fetch the corresponding icon here
 
     const current = weatherData.current;
+    currentTime.textContent = current.datetime;
     temperature.textContent = current.temp;
     conditions.textContent = current.conditions;
     humidity.textContent = current.humidity;
