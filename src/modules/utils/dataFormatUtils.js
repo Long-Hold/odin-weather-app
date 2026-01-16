@@ -48,3 +48,13 @@ export function titlecaseAddress(text) {
     const cleanText = text.trim();
     return cleanText.charAt(0).toUpperCase() + cleanText.slice(1);
 }
+
+export function addCelciusSymbols(temperature) {
+    const stringTemp = `${temperature}`.trim();
+    return `${stringTemp}° C`;
+}
+
+export function addPercentageSymbol(item) {
+    const stringified = `${item}`.trim();
+    return `${stringified}%`;
+}
