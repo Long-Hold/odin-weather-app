@@ -1,11 +1,13 @@
 import { formatTo12Hour, degreesToCardinal, titlecaseAddress, addCelciusSymbols, addPercentageSymbol } from "../utils/dataFormatUtils";
 
 export function parseWeatherJson(weatherData) {
+  const currentConditions = stringifyValues(weatherData.currentConditions);
+  const forecastConditions = weatherData.days.map(day => stringifyValues(day));
   return {
     address: titlecaseAddress(weatherData.address),
     description: weatherData.description,
-    current: extractCurrentConditions(weatherData.currentConditions),
-    forecasted: extractForecastedConditions(weatherData.days),
+    current: extractCurrentConditions(currentConditions),
+    forecasted: extractForecastedConditions(forecastConditions),
   };
 }
 
@@ -50,4 +52,18 @@ function extractForecastedConditions(days) {
     windGust: day.windgust,
     windSpeed: day.windspeed,
   }));
+}
+
+/**
+ * Converts and trims all object properties into strings.
+ * @param {Object} object - An object storing weather data.
+ * @returns {Object} An object with all string values
+ */
+function stringifyValues(object) {
+  const results = {};
+  for (const [key, value] of Object.entries(object)) {
+    results[key] = `${value}`.trim();
+  }
+
+  return results;
 }
