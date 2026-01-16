@@ -32,3 +32,14 @@ export function formatTo12Hour(time24) {
     const minutesNormalized = `${minutes}`.padStart(2, '0');
     return `${hours12}:${minutesNormalized} ${period}`;
 }
+
+export function degreesToCardinal(degrees) {
+    if (!degrees || isNaN(degrees)) {
+        throw new Error('Invalid degrees format');
+    }
+    const directions = ['N','NE','E','SE','S','SW','W','NW'];
+    const degreePerDirection = 360 / directions.length;
+
+    const index = Math.round((degrees % 360) / degreePerDirection);
+    return directions[index % directions.length];
+}
