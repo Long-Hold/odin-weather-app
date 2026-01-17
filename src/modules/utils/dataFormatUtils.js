@@ -58,3 +58,11 @@ export function addPercentageSymbol(item) {
     const stringified = `${item}`.trim();
     return `${stringified}%`;
 }
+
+export function addKilometerSymbol(item) {
+    return `${item} km/h`;
+}
+
+export function addCentimeterSymbol(item) {
+    return `${item}cm`;
+}
