@@ -1,4 +1,4 @@
-import { formatTo12Hour, degreesToCardinal, titlecaseAddress, addCelciusSymbols, addPercentageSymbol } from "../utils/dataFormatUtils";
+import { formatTo12Hour, degreesToCardinal, titlecaseAddress, addCelciusSymbols, addPercentageSymbol, addKilometerSymbol, addCentimeterSymbol } from "../utils/dataFormatUtils";
 
 export function parseWeatherJson(weatherData) {
   const currentConditions = stringifyValues(weatherData.currentConditions);
@@ -18,16 +18,16 @@ function extractCurrentConditions(current) {
     feelslike: addCelciusSymbols(current.feelslike),
     humidity: addPercentageSymbol(current.humidity),
     icon: current.icon,
-    precip: current.precip,
+    precip: addCentimeterSymbol(current.precip),
     precipProb: addPercentageSymbol(current.precipprob),
     precipType: current.preciptype,
-    snow: current.snow,
+    snow: addCentimeterSymbol(current.snow),
     sunrise: formatTo12Hour(current.sunrise),
     sunset: formatTo12Hour(current.sunset),
     temp: addCelciusSymbols(current.temp),
     windDirection: degreesToCardinal(current.winddir),
-    windGust: current.windgust,
-    windSpeed: current.windspeed,
+    windGust: addKilometerSymbol(current.windgust),
+    windSpeed: addKilometerSymbol(current.windspeed),
   };
 }
 
@@ -39,18 +39,18 @@ function extractForecastedConditions(days) {
     feelsLike: addCelciusSymbols(day.feelslike),
     humidity: addPercentageSymbol(day.humidity),
     icon: day.icon,
-    precip: day.precip,
+    precip: addCentimeterSymbol(day.precip),
     precipProb: addPercentageSymbol(day.precipprob),
     precipType: day.preciptype,
-    snow: day.snow,
+    snow: addCentimeterSymbol(day.snow),
     sunrise: formatTo12Hour(day.sunrise),
     sunset: formatTo12Hour(day.sunset),
     temp: addCelciusSymbols(day.temp),
     tempMax: addCelciusSymbols(day.tempmax),
     tempMin: addCelciusSymbols(day.tempmin),
     windDirection: degreesToCardinal(day.winddir),
-    windGust: day.windgust,
-    windSpeed: day.windspeed,
+    windGust: addKilometerSymbol(day.windgust),
+    windSpeed: addKilometerSymbol(day.windspeed),
   }));
 }
 
