@@ -50,13 +50,11 @@ export function titlecaseAddress(text) {
 }
 
 export function addCelciusSymbols(temperature) {
-    const stringTemp = `${temperature}`.trim();
-    return `${stringTemp}°C`;
+    return `${temperature}°C`;
 }
 
 export function addPercentageSymbol(item) {
-    const stringified = `${item}`.trim();
-    return `${stringified}%`;
+    return `${item}%`;
 }
 
 export function addKilometerSymbol(item) {
@@ -64,6 +62,5 @@ export function addKilometerSymbol(item) {
 }
 
 export function addCentimeterSymbol(item) {
-    if (!item) return '0cm';
     return `${item}cm`;
 }
