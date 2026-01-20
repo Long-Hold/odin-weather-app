@@ -33,7 +33,6 @@ function extractCurrentConditions(current) {
 
 function extractForecastedConditions(days) {
   return days.map((day) => ({
-    conditions: day.conditions,
     date: day.datetime,
     description: day.description,
     feelsLike: addCelciusSymbols(day.feelslike),
@@ -43,14 +42,7 @@ function extractForecastedConditions(days) {
     precipProb: addPercentageSymbol(day.precipprob),
     precipType: day.preciptype,
     snow: addCentimeterSymbol(day.snow),
-    sunrise: formatTo12Hour(day.sunrise),
-    sunset: formatTo12Hour(day.sunset),
     temp: addCelciusSymbols(day.temp),
-    tempMax: addCelciusSymbols(day.tempmax),
-    tempMin: addCelciusSymbols(day.tempmin),
-    windDirection: degreesToCardinal(day.winddir),
-    windGust: addKilometerSymbol(day.windgust),
-    windSpeed: addKilometerSymbol(day.windspeed),
   }));
 }
 
