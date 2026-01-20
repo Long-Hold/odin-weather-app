@@ -1,4 +1,5 @@
 const currentWeatherCard = document.querySelector('.current-data-card');
+const forecastCardTemplate = document.getElementById('forecast-card-template');
 
 /**
  * Updates the DOM element that represents current weather data with information
@@ -12,6 +13,7 @@ export function displayCurrentWeatherData(weatherData) {
     const icon = currentWeatherCard.querySelector('img');
     
     const temperature = currentWeatherCard.querySelector('.temperature');
+    const feelsLike = currentWeatherCard.querySelector('.feels-like');
     const conditions = currentWeatherCard.querySelector('.conditions');
     const humidity = currentWeatherCard.querySelector('.humidity');
 
@@ -34,6 +36,7 @@ export function displayCurrentWeatherData(weatherData) {
     const current = weatherData.current;
     currentTime.textContent = current.datetime;
     temperature.textContent = current.temp;
+    feelsLike.textContent = current.feelsLike;
     conditions.textContent = current.conditions;
     humidity.textContent = current.humidity;
 
