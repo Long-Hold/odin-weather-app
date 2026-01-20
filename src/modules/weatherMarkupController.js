@@ -49,3 +49,12 @@ export function displayCurrentWeatherData(weatherData) {
     windDirection.textContent = current.windDirection;
     windGust.textContent = current.windGust;
 }
+
+/**
+ * Updates the micro-cards with data of future forecasts.
+ * @param {Object} weatherData - An object containing an array of objects, each object contains
+ * forecast data from that day.
+ */
+export function displayForecastedData(weatherData) {
+
+}
