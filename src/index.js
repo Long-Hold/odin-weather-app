@@ -1,5 +1,5 @@
 import { parseWeatherJson } from "./modules/objects/weatherClass";
-import { displayCurrentWeatherData } from "./modules/weatherMarkupController";
+import { displayCurrentWeatherData, displayForecastedData } from "./modules/weatherMarkupController";
 import { getWeatherData } from "./modules/weatherService";
 
 const form = document.querySelector("form");
@@ -15,6 +15,7 @@ form.addEventListener("submit", async (event) => {
     console.log("Current Conditions: ", weatherObject.current);
     console.log("Forecasted Conditions: ", weatherObject.forecasted);
     displayCurrentWeatherData(weatherObject);
+    displayForecastedData(weatherObject.forecasted);
   } catch (error) {
     console.error(
       `An error was caught while retrieving weather data. ${error}`,
