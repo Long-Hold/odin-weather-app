@@ -39,7 +39,7 @@ export function displayCurrentWeatherData(weatherData) {
 
     precip.textContent = current.precip;
     precipProb.textContent = current.precpProb;
-    // precipType.textContent = current.precpType[0];
+    precipType.textContent = current.precipType;
     snow.textContent = current.snow;
 
     sunrise.textContent = current.sunrise;
