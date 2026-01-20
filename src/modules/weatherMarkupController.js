@@ -59,5 +59,23 @@ export function displayCurrentWeatherData(weatherData) {
  * forecast data from that day.
  */
 export function displayForecastedData(weatherData) {
+    weatherData.forEach((day) => {
+        const forecastCardClone = forecastCardTemplate.content.cloneNode(true);
+        const article = forecastCardClone.querySelector('.forecast-data-card');
 
+        const time = article.querySelector('time');
+        //TODO: Fetch icon
+
+        const temperature = article.querySelector('.temperature');
+        const feelsLike = article.querySelector('.feels-like');
+        const precipType = article.querySelector('.precip-type');
+        const precipProb = article.querySelector('.precip-prob');
+        const precip = article.querySelector('.precip');
+        const snow = article.querySelector('.snow');
+
+        time.setAttribute('datetime', day.date);
+        time.textContent = day.date;
+
+        document.querySelector('.forecast-cards-display').appendChild(article);
+    });
 }
