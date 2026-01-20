@@ -15,7 +15,7 @@ function extractCurrentConditions(current) {
   return {
     conditions: current.conditions,
     datetime: formatTo12Hour(current.datetime),
-    feelslike: addCelciusSymbols(current.feelslike),
+    feelsLike: addCelciusSymbols(current.feelslike),
     humidity: addPercentageSymbol(current.humidity),
     icon: current.icon,
     precip: addCentimeterSymbol(current.precip),
