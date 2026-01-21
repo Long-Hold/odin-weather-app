@@ -34,7 +34,6 @@ function extractCurrentConditions(current) {
 function extractForecastedConditions(days) {
   return days.map((day) => ({
     date: day.datetime,
-    feelsLike: addCelciusSymbols(day.feelslike),
     icon: day.icon,
     precip: addCentimeterSymbol(day.precip),
     precipProb: addPercentageSymbol(day.precipprob),
