@@ -1,5 +1,5 @@
 import { parseWeatherJson } from "./modules/objects/weatherClass";
-import { displayCurrentWeatherData, displayForecastedData } from "./modules/weatherMarkupController";
+import { displayCurrentWeatherData, displayForecastedData } from "./modules/dom/weatherMarkupController";
 import { getWeatherData } from "./modules/weatherService";
 
 const form = document.querySelector("form");
