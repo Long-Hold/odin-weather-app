@@ -14,7 +14,7 @@ form.addEventListener("submit", async (event) => {
     const weatherObject = parseWeatherJson(weatherData);
     console.log("Current Conditions: ", weatherObject.current);
     console.log("Forecasted Conditions: ", weatherObject.forecasted);
-    displayCurrentWeatherData(weatherObject);
+    displayCurrentWeatherData(weatherObject.current);
     displayForecastedData(weatherObject.forecasted);
   } catch (error) {
     console.error(
