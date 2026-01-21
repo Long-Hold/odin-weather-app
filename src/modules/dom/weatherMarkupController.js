@@ -19,7 +19,7 @@ export function displayCurrentWeatherData(weatherData) {
     //TODO: Set Icon
 
     const current = weatherData.current;
-    addWeatherDataTextContent(current, currentWeatherCard);
+    updateWeatherCards(current, currentWeatherCard);
 }
 
 /**
@@ -35,7 +35,7 @@ export function displayForecastedData(weatherData) {
         const forecastCardClone = forecastCardTemplate.content.cloneNode(true);
         const article = forecastCardClone.querySelector('.forecast-data-card');
 
-        addWeatherDataTextContent(day, article);
+        updateWeatherCards(day, article);
         forecastCardsDisplay.appendChild(article);
     });
 }
@@ -51,7 +51,7 @@ export function displayForecastedData(weatherData) {
  * @param {HTMLElement} parentContainerElement - The parent container that holds the queried child
  * @returns {HTMLElement}
  */
-function addWeatherDataTextContent(weatherData, parentContainerElement) {
+function updateWeatherCards(weatherData, parentContainerElement) {
     for (const [key, value] of Object.entries(weatherData)) {
         const element = parentContainerElement.querySelector(`[data-forecast="${key}"]`);
 
