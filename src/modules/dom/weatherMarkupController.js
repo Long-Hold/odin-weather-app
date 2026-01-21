@@ -1,3 +1,5 @@
+import { getWeatherIcon } from "./weatherIconManager";
+
 const currentWeatherCard = document.querySelector('.current-data-card');
 const forecastCardTemplate = document.getElementById('forecast-card-template');
 
@@ -55,6 +57,12 @@ function addWeatherDataTextContent(weatherData, parentContainerElement) {
 
         if (!element) {
             console.error(`The corresponding element for ${key} could not be found.`);
+            continue;
+        }
+
+        if (element instanceof HTMLImageElement) {
+            const icon = getWeatherIcon(value);
+            element.src = icon;
             continue;
         }
 
