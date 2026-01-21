@@ -1,7 +1,5 @@
 import { getWeatherIcon } from "./weatherIconManager";
 
-const forecastCardTemplate = document.getElementById('forecast-card-template');
-
 /**
  * Updates the DOM element that represents current weather data with information
  * from the current weather object.
@@ -36,6 +34,8 @@ export function displayCurrentWeatherData(weatherData) {
 export function displayForecastedData(weatherData) {
     const forecastCardsDisplay = document.querySelector('.forecast-cards-display');
     forecastCardsDisplay.replaceChildren();
+
+    const forecastCardTemplate = document.getElementById('forecast-card-template');
     
     weatherData.forEach((day) => {
         const forecastCardClone = forecastCardTemplate.content.cloneNode(true);
