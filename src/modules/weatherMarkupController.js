@@ -17,11 +17,7 @@ export function displayCurrentWeatherData(weatherData) {
     //TODO: Set Icon
 
     const current = weatherData.current;
-    for (const [key, value] of Object.entries(current)) {
-        const element = currentWeatherCard.querySelector(`[data-forecast="${key}"]`);
-        if (element) element.textContent = value;
-        else console.error(`Element for current weather ${key} not found.`);
-    }
+    addWeatherDataTextContent(current, currentWeatherCard);
 }
 
 /**
@@ -30,23 +26,41 @@ export function displayCurrentWeatherData(weatherData) {
  * forecast data from that day.
  */
 export function displayForecastedData(weatherData) {
+    const forecastCardsDisplay = document.querySelector('.forecast-cards-display');
+    forecastCardsDisplay.replaceChildren();
+    
     weatherData.forEach((day) => {
         const forecastCardClone = forecastCardTemplate.content.cloneNode(true);
         const article = forecastCardClone.querySelector('.forecast-data-card');
 
-        const time = article.querySelector('time');
-        //TODO: Fetch icon
-
-        const temperature = article.querySelector('.temperature');
-        const feelsLike = article.querySelector('.feels-like');
-        const precipType = article.querySelector('.precip-type');
-        const precipProb = article.querySelector('.precip-prob');
-        const precip = article.querySelector('.precip');
-        const snow = article.querySelector('.snow');
-
-        time.setAttribute('datetime', day.date);
-        time.textContent = day.date;
-
-        document.querySelector('.forecast-cards-display').appendChild(article);
+        addWeatherDataTextContent(day, article);
+        forecastCardsDisplay.appendChild(article);
     });
+}
+
+/**
+ * Iterates through an objects Key, Value properties and queries a parent HTML Element
+ * for child elements via the dataset attribute.
+ * 
+ * If the dataset value matches the Key from the object, then the elements textContent is updated
+ * with that Key's Value.
+ * 
+ * @param {Object} weatherData - An object that stores various weather data values.
+ * @param {HTMLElement} parentContainerElement - The parent container that holds the queried child
+ * @returns {HTMLElement}
+ */
+function addWeatherDataTextContent(weatherData, parentContainerElement) {
+    for (const [key, value] of Object.entries(weatherData)) {
+        const element = parentContainerElement.querySelector(`[data-forecast="${key}"]`);
+
+        if (!element) {
+            console.error(`The corresponding element for ${key} could not be found.`);
+            continue;
+        }
+
+        if (element instanceof HTMLTimeElement) element.setAttribute('datetime', value);
+        element.textContent = value;
+    }
+
+    return parentContainerElement;
 }
