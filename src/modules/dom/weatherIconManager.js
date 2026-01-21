@@ -11,6 +11,7 @@ export function getWeatherIcon(iconName) {
     try {
         return icons(`./${iconName}.svg`);
     } catch (error) {
+        console.error(error);
         console.error(`Image not found: ${iconName}`);
         return icons('./image-not-found.svg');
     }
