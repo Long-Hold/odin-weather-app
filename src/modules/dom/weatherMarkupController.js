@@ -1,6 +1,5 @@
 import { getWeatherIcon } from "./weatherIconManager";
 
-const currentWeatherCard = document.querySelector('.current-data-card');
 const forecastCardTemplate = document.getElementById('forecast-card-template');
 
 /**
@@ -9,6 +8,10 @@ const forecastCardTemplate = document.getElementById('forecast-card-template');
  * @param {Object} weatherData - An object containing weather data from the Visual Crossing API.
  */
 export function displayCurrentWeatherData(weatherData) {
+    const currentCardTemplate = document.getElementById('current-card-template');
+    const currentCardClone = currentCardTemplate.content.cloneNode(true);
+    const currentWeatherCard = currentCardClone.querySelector('.current-data-card');
+
     /**These values are not in the nested 'current' object,
      * so they are queried and set manually
      */
@@ -19,6 +22,10 @@ export function displayCurrentWeatherData(weatherData) {
 
     const current = weatherData.current;
     updateWeatherCards(current, currentWeatherCard);
+
+    const currentCardDisplay = document.querySelector('.current-card-display');
+    currentCardDisplay.replaceChildren();
+    currentCardDisplay.appendChild(currentWeatherCard);
 }
 
 /**
