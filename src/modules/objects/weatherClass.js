@@ -1,7 +1,7 @@
 import { formatTo12Hour, degreesToCardinal, titlecaseAddress, addCelciusSymbols, addPercentageSymbol, addKilometerSymbol, addCentimeterSymbol } from "../utils/dataFormatUtils";
 
 export function parseWeatherJson(weatherData) {
-  let currentConditions = stringifyValues({
+  const currentConditions = stringifyValues({
     ...weatherData.currentConditions,
     address: weatherData.address,
     description: weatherData.description,
