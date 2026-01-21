@@ -9,17 +9,8 @@ export function displayCurrentWeatherData(weatherData) {
     const currentCardTemplate = document.getElementById('current-card-template');
     const currentCardClone = currentCardTemplate.content.cloneNode(true);
     const currentWeatherCard = currentCardClone.querySelector('.current-data-card');
-
-    /**These values are not in the nested 'current' object,
-     * so they are queried and set manually
-     */
-    const address = currentWeatherCard.querySelector('.address');
-    const description = currentWeatherCard.querySelector('.description');
-    address.textContent = weatherData.address;
-    description.textContent = weatherData.description
-
-    const current = weatherData.current;
-    updateWeatherCards(current, currentWeatherCard);
+    
+    updateWeatherCards(weatherData, currentWeatherCard);
 
     const currentCardDisplay = document.querySelector('.current-card-display');
     currentCardDisplay.replaceChildren();
