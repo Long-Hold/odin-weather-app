@@ -14,7 +14,7 @@ export function parseWeatherJson(weatherData) {
 function extractCurrentConditions(current) {
   return {
     conditions: current.conditions,
-    datetime: formatTo12Hour(current.datetime),
+    dateTime: formatTo12Hour(current.datetime),
     feelsLike: addCelciusSymbols(current.feelslike),
     humidity: addPercentageSymbol(current.humidity),
     icon: current.icon,
