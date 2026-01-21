@@ -16,7 +16,6 @@ export function displayCurrentWeatherData(weatherData) {
     const description = currentWeatherCard.querySelector('.description');
     address.textContent = weatherData.address;
     description.textContent = weatherData.description
-    //TODO: Set Icon
 
     const current = weatherData.current;
     updateWeatherCards(current, currentWeatherCard);
