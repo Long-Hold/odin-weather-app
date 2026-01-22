@@ -232,13 +232,16 @@ input {
 
 button[type="submit"] {
   transition: 0.3s ease;
-	background: center / contain no-repeat url('../assets/interactables/search-icon.svg') skyblue;
+	background-color: rgb(49, 149, 188);
+	mask: url('../assets/interactables/search-icon.svg') center / contain no-repeat;
+  -webkit-mask: url('../assets/interactables/search-icon.svg') center / contain no-repeat;
 }
 
 button:hover,
 button:focus {
   transition: 0.3s ease;
   filter: brightness(120%);
+	cursor: pointer;
 }
 
 button:active {
