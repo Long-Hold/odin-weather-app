@@ -241,7 +241,7 @@ button:hover {
 }
 
 body {
-  /* temporary to make styling easier on my eyes */
+	background: url('../assets/backgrounds/cloudysky.JPEG') no-repeat center center fixed;
   background-color: grey; 
   display: grid;
   grid-template-columns: auto;
