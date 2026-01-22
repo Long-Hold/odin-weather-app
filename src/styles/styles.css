@@ -214,15 +214,25 @@ summary {
 
 
 /* My styling */
-input, button {
+.templates {
+	display: none;
+}
+
+input, button, #location-form {
   border: none;
   border-radius: 10px;
   padding: 0.4em
 }
 
-button {
-  background-color: skyblue;
+input {
+	background-color: inherit;
+	color: inherit;
+	outline: none;
+}
+
+button[type="submit"] {
   transition: 0.3s ease;
+	background: center / contain no-repeat url('../assets/interactables/search-icon.svg') skyblue;
 }
 
 button:hover {
@@ -242,5 +252,34 @@ body {
 }
 
 .location-search {
-  padding: 0.5rem 0;
+	grid-area: searchbar;
+	width: 100%;
+
+	display: flex;
+	justify-content: center;
+	padding-top: 0.5rem;
+}
+
+#location-form {
+	background-color: rgb(176, 176, 176);
+	min-width: 50%;
+	height: 100%;
+
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 0.2rem;
+
+	input, button {
+		height: 100%;
+	}
+
+	button {
+		width: 3rem;
+	}
+
+	input {
+		flex: 1;
+	}
 }
