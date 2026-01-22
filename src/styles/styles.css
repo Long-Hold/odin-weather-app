@@ -235,9 +235,14 @@ button[type="submit"] {
 	background: center / contain no-repeat url('../assets/interactables/search-icon.svg') skyblue;
 }
 
-button:hover {
+button:hover,
+button:focus {
   transition: 0.3s ease;
   filter: brightness(120%);
+}
+
+button:active {
+	filter: brightness(90%);
 }
 
 body {
@@ -261,7 +266,7 @@ body {
 }
 
 #location-form {
-	background-color: rgb(176, 176, 176);
+	background-color: rgb(221, 220, 220);
 	min-width: 50%;
 	height: 100%;
 
