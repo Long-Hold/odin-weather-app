@@ -214,6 +214,11 @@ summary {
 
 
 /* My styling */
+
+:root {
+	--transparent-gray: rgba(0,0,0,0.45);
+	--darker-white: rgb(221, 220, 220);
+}
 .templates {
 	display: none;
 }
@@ -269,7 +274,7 @@ body {
 }
 
 #location-form {
-	background-color: rgb(221, 220, 220);
+	background-color: var(--darker-white);
 	min-width: 50%;
 	height: 100%;
 
@@ -290,4 +295,18 @@ body {
 	input {
 		flex: 1;
 	}
+}
+
+/* Card containers styling */
+.data-display {
+	grid-area: data;
+	display: flex;
+	flex-flow: column nowrap;
+}
+
+/* Weather Card styling */
+
+article {
+	background-color: var(--transparent-gray);
+	color: whitesmoke;
 }
