@@ -331,3 +331,31 @@ article {
 	border: 2px solid whitesmoke;
 	border-radius: 10px;
 }
+
+/* ==== Current Data Card Styling ==== */
+.current-data-card {
+	display: grid;
+}
+
+.current-data-card .card-header {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+
+	grid-template-areas: 
+	"address time"
+	"icon description";
+
+	.address {
+		grid-area: address;
+	}
+	.date-time {
+		grid-area: time;
+	}
+	.icon {
+		grid-area: icon;
+	}
+	.description {
+		grid-area: description;
+	}
+}
