@@ -319,8 +319,6 @@ body {
 	align-items: center;
 
 	margin: 0.5rem;
-	border: 2px solid whitesmoke;
-	border-radius: 10px;
 
 	width: fit-content;
 }
@@ -330,4 +328,6 @@ body {
 article {
 	background-color: var(--transparent-gray);
 	color: whitesmoke;
+	border: 2px solid whitesmoke;
+	border-radius: 10px;
 }
