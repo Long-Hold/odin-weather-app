@@ -344,7 +344,7 @@ article {
 
 	grid-template-areas: 
 	"address time"
-	"icon description";
+	"icon conditions";
 
 	.address {
 		grid-area: address;
@@ -353,9 +353,10 @@ article {
 		grid-area: time;
 	}
 	.icon {
+		width: 300px;
 		grid-area: icon;
 	}
-	.description {
-		grid-area: description;
+	.conditions {
+		grid-area: conditions;
 	}
 }
