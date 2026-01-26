@@ -1,4 +1,4 @@
-import { getWeatherIcon } from "./weatherIconManager";
+import { getWeatherIcon, getDataThumbnail } from "./weatherIconManager";
 
 /**
  * Updates the DOM element that represents current weather data with information
@@ -11,6 +11,8 @@ export function displayCurrentWeatherData(weatherData) {
     const currentWeatherCard = currentCardClone.querySelector('.current-data-card');
     
     updateWeatherCards(weatherData, currentWeatherCard);
+    currentWeatherCard.querySelector('.sunrise img').src = getDataThumbnail('sunrise');
+    currentWeatherCard.querySelector('.sunset img').src = getDataThumbnail('sunset');
 
     const currentCardDisplay = document.querySelector('.current-card-display');
     currentCardDisplay.replaceChildren();
