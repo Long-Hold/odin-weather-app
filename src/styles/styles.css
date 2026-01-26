@@ -316,32 +316,43 @@ body {
 	place-self: center;
 	display: flex;
 	flex-flow: column nowrap;
-	justify-content: center;
-	align-items: center;
+	place-content: center;
+	gap: 0.5rem;
 
 	margin: 0.5rem;
 
-	width: fit-content;
+	width: 100%;
 }
 
 /* Weather Card styling */
 
+.current-card-display,
+.forecast-cards-display {
+	width: 100%;
+}
+
 article {
 	background-color: var(--transparent-gray);
 	color: whitesmoke;
-	border: 2px solid whitesmoke;
 	border-radius: 10px;
+	width: max(50%, 300px);
+	display: grid;
+	>* {
+		padding: 0.8rem;
+	}
 }
 
 /* ==== Current Data Card Styling ==== */
-.current-data-card {
-	display: grid;
+.current-card-display {
+	display: flex;
+	place-content: center;
 }
-
 .current-data-card .card-header {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr 1fr;
+	grid-template-rows: auto auto;
+	row-gap: 1rem;
+	align-items: end;
 
 	grid-template-areas: 
 	"address time"
@@ -349,14 +360,20 @@ article {
 
 	.address {
 		grid-area: address;
+		justify-self: left;
 	}
 	.date-time {
 		grid-area: time;
+		justify-self: right;
 	}
 	.icon {
 		grid-area: icon;
+		height: 2.5rem;
+		width: auto;
+		justify-self: left;
 	}
 	.conditions {
 		grid-area: conditions;
+		justify-self: right;
 	}
 }
