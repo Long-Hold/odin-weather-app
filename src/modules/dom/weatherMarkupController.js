@@ -57,6 +57,8 @@ function updateWeatherCards(weatherData, parentContainerElement) {
             continue;
         }
 
+        // This only updates image elements that have the data-forecast attribute,
+        // not image elements like the sunrise / sunset thumnails
         if (element instanceof HTMLImageElement) {
             const icon = getWeatherIcon(value);
             element.src = icon;
