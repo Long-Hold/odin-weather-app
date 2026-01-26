@@ -220,6 +220,10 @@ summary {
 	--darker-white: rgb(221, 220, 220);
 	--universal-padding: 0.5rem;
 	--universal-radius: 0.6rem;
+	/* Used for consistent, similar sizing for some elements like search bars and cards.
+	This allows me to enforce the same sizes on this elements for aesthetic purposes.
+	 */
+	--universal-dynamic-width: clamp(300px, 50%, 500px);
 }
 .templates {
 	display: none;
@@ -294,7 +298,7 @@ body {
 
 #location-form {
 	background-color: var(--darker-white);
-	min-width: 50%;
+	width: clamp(300px, 50%, 500px);
 	height: 100%;
 
 	display: flex;
@@ -339,7 +343,7 @@ article {
 	background-color: var(--transparent-gray);
 	color: whitesmoke;
 	border-radius: var(--universal-radius);
-	width: max(50%, 300px);
+	width: var(--universal-dynamic-width);
 	display: grid;
 	>* {
 		padding: 0.8rem;
