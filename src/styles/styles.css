@@ -385,3 +385,40 @@ article {
 		justify-self: right;
 	}
 }
+
+.current-card-body,
+.current-card-body>* {
+	width: 100%;
+	height: 100%;
+	
+	display: grid;
+}
+
+.current-card-body {
+	.general-data {
+		grid-template-rows: auto auto;
+		grid-template-columns: 1fr 1fr;
+		grid-template-areas: 
+		"temperature humidity"
+		"feels-like feels-like";
+
+		row-gap: 0.5rem;
+
+		.temperature {
+			grid-area: temperature;
+		}
+
+		.feels-like {
+			grid-area: feels-like;
+		}
+
+		.temperature, .feels-like {
+			justify-self: left;
+		}
+
+		.humidity {
+			grid-area: humidity;
+			justify-self: right;
+		}
+	}
+}
