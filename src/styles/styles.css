@@ -219,7 +219,7 @@ summary {
 	--transparent-gray: rgba(0,0,0,0.45);
 	--darker-white: rgb(221, 220, 220);
 	--universal-padding: 0.5rem;
-	--universal-radius: calc(10 / 1rem);
+	--universal-radius: 0.6rem;
 }
 .templates {
 	display: none;
@@ -240,7 +240,7 @@ ELEMENT RESETS
 
 input, button, #location-form {
   border: none;
-  border-radius: 10px;
+  border-radius: var(--universal-radius);
   padding: 0.4em
 }
 
@@ -338,7 +338,7 @@ body {
 article {
 	background-color: var(--transparent-gray);
 	color: whitesmoke;
-	border-radius: 10px;
+	border-radius: var(--universal-radius);
 	width: max(50%, 300px);
 	display: grid;
 	>* {
