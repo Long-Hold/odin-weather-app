@@ -391,13 +391,14 @@ article {
 	}
 }
 
-.current-card-body {
+/* ==== Styling for sub-data cards on both current and forecast cards ==== */
+.current-card-body, .forecast-data {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: auto auto;
 	gap: 0.5rem;
 
-	> div {
+	> * {
 		/* background-color: var(--transparent-gray);
 		border-radius: var(--universal-radius);
 		padding: var(--universal-padding);
@@ -415,7 +416,7 @@ article {
 
 	/* Encase all data blocks in their own containers,
 	exlcuding any headers */
-	>div, > div > *:not(:first-child) {
+	>*, > * > *:not(h3) {
 		background-color: var(--transparent-gray);
 		border-radius: var(--universal-radius);
 		padding: var(--universal-padding);
