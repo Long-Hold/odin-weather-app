@@ -442,6 +442,12 @@ article {
 	}
 
 	.forecast-data-card {
+		text-align: center;
+		width: fit-content;
+		padding: var(--universal-padding);
+		>* {
+			padding: 0;
+		}
 		.icon {
 			width: auto;
 			height: 1.5rem;
