@@ -394,31 +394,55 @@ article {
 	display: grid;
 }
 
-.current-card-body {
-	.general-data {
-		grid-template-rows: auto auto;
-		grid-template-columns: 1fr 1fr;
-		grid-template-areas: 
-		"temperature humidity"
-		"feels-like feels-like";
+.current-card-body .general-data {
+	grid-template-rows: auto auto;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas: 
+	"temperature humidity"
+	"feels-like feels-like";
 
-		row-gap: 0.5rem;
+	row-gap: 0.5rem;
 
-		.temperature {
-			grid-area: temperature;
-		}
+	.temperature {
+		grid-area: temperature;
+	}
 
-		.feels-like {
-			grid-area: feels-like;
-		}
+	.feels-like {
+		grid-area: feels-like;
+	}
 
-		.temperature, .feels-like {
-			justify-self: left;
-		}
+	.temperature, .feels-like {
+		justify-self: left;
+	}
 
-		.humidity {
-			grid-area: humidity;
-			justify-self: right;
-		}
+	.humidity {
+		grid-area: humidity;
+		justify-self: right;
+	}
+}
+
+.current-card-body .precipitation-data {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto auto;
+	grid-template-areas: 
+	"precip-type precip-total"
+	"precip-prob snow-total";
+
+	.precip {
+		grid-area: precip-total;
+		justify-self: right;
+	}
+	.precip-prob {
+		grid-area: precip-prob;
+		justify-self: left;
+	}
+	.precip-type {
+		grid-area: precip-type;
+		justify-self: left;
+	}
+	.snow {
+		grid-area: snow-total;
+		justify-self: right;
 	}
 }
