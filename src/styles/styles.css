@@ -433,3 +433,22 @@ article {
 		justify-content: start;
 	}
 }
+
+@media screen and (max-width: 600px) {
+	.forecast-cards-display {
+		display: flex;
+		flex-flow: row nowrap;
+		width: 100%;
+	}
+
+	.forecast-data-card {
+		.icon {
+			width: auto;
+			height: 1.5rem;
+		}
+		.forecast-data {
+			display: flex;
+			flex-flow: column nowrap;
+		}
+	}
+}
