@@ -19,11 +19,18 @@ export async function getWeatherData(location) {
   }
 
   const encodedLocation = encodeURI(location);
+  
+  // Calculate date range: today + next 7 days
+  const today = new Date();
+  const endDate = new Date();
+  endDate.setDate(today.getDate() + 7);
+  
+  const formatDate = (date) => date.toISOString().split('T')[0]; // YYYY-MM-DD
 
   const request =
     API_LINK +
     encodedLocation +
-    "/next7days/" +
+    `/${formatDate(today)}/${formatDate(endDate)}` +
     `?key=${API_KEY}` +
     UNIT_GROUP +
     API_GROUPS;
