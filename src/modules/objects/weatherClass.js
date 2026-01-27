@@ -1,4 +1,4 @@
-import { formatTo12Hour, degreesToCardinal, titlecaseAddress, addCelciusSymbols, addPercentageSymbol, addKilometerSymbol, addCentimeterSymbol } from "../utils/dataFormatUtils";
+import { formatTo12Hour, degreesToCardinal, titlecaseAddress, addCelciusSymbols, addPercentageSymbol, addKilometerSymbol, addCentimeterSymbol, convertDateToShorthand } from "../utils/dataFormatUtils";
 
 export function parseWeatherJson(weatherData) {
   const currentConditions = stringifyValues({
@@ -36,7 +36,7 @@ function extractCurrentConditions(current) {
 
 function extractForecastedConditions(days) {
   return days.map((day) => ({
-    date: day.datetime,
+    date: convertDateToShorthand(day.datetime),
     icon: day.icon,
     precip: addCentimeterSymbol(day.precip),
     precipProb: addPercentageSymbol(day.precipprob),

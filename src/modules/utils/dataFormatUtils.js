@@ -64,3 +64,11 @@ export function addKilometerSymbol(item) {
 export function addCentimeterSymbol(item) {
     return `${item}cm`;
 }
+
+export function convertDateToShorthand(dateString) {
+    const date = new Date(dateString);
+    const weekday = date.toLocaleDateString('en-US', { weekday: 'short' });
+    const day = date.toLocaleDateString('en-US', { day: 'numeric' });
+    
+    return `${weekday} ${day}`;
+}
