@@ -6,7 +6,7 @@ export function parseWeatherJson(weatherData) {
     address: weatherData.address,
   });
 
-  const forecastConditions = weatherData.days.map(day => stringifyValues(day));
+  const forecastConditions = weatherData.days.slice(1).map(day => stringifyValues(day));
   return {
     current: extractCurrentConditions(currentConditions),
     forecasted: extractForecastedConditions(forecastConditions),
