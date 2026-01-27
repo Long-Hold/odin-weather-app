@@ -350,6 +350,11 @@ article {
 	}
 }
 
+.thumbnail {
+	height: 1.5rem;
+	width: auto;
+}
+
 /* ==== Current Data Card Styling ==== */
 .current-card-display {
 	display: flex;
@@ -414,9 +419,5 @@ article {
 		display: flex;
 		align-items: center;
 		justify-content: start;
-	}
-	img {
-		height: 1.5rem;
-		width: auto;
 	}
 }
