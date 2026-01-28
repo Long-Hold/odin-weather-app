@@ -332,8 +332,8 @@ body {
   overflow-x: auto;
 }
 
-.data-display .current-card-display,
-.data-display .forecast-cards-display {
+.data-display .current-card-display:empty,
+.data-display .forecast-cards-display:empty {
   display: none;
 }
 
