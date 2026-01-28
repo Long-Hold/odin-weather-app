@@ -2,7 +2,7 @@ const API_KEY = "SYJEG9VMFX7C945UL7FBJ8JH7";
 const API_LINK =
   "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/";
 const API_GROUPS =
-  "&elements=add:resolvedAddress,remove:cloudcover,remove:datetimeEpoch,remove:dew,remove:feelslikemax,remove:feelslikemin,remove:moonphase,remove:precipcover,remove:pressure,remove:severerisk,remove:snowdepth,remove:solarenergy,remove:solarradiation,remove:stations,remove:uvindex,remove:visibility";
+  "&elements=add:resolvedAddress,remove:cloudcover,remove:datetimeEpoch,remove:description,remove:dew,remove:feelslikemax,remove:feelslikemin,remove:moonphase,remove:precipcover,remove:pressure,remove:severerisk,remove:snow,remove:snowdepth,remove:solarenergy,remove:solarradiation,remove:stations,remove:tempmax,remove:tempmin,remove:uvindex,remove:visibility";
 const UNIT_GROUP = "&unitGroup=metric";
 /**
  * Fetches weather data from the VisualCrossing API.
@@ -23,10 +23,12 @@ export async function getWeatherData(location) {
   const request =
     API_LINK +
     encodedLocation +
-    "/next7days/" +
+    "/next7days" +
     `?key=${API_KEY}` +
     UNIT_GROUP +
     API_GROUPS;
+
+  console.log(request);
 
   const result = await fetch(request);
   if (!result.ok) {

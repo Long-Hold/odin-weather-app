@@ -1,7 +1,4 @@
-import { getWeatherIcon } from "./weatherIconManager";
-
-const currentWeatherCard = document.querySelector('.current-data-card');
-const forecastCardTemplate = document.getElementById('forecast-card-template');
+import { getWeatherIcon, getDataThumbnail } from "./weatherIconManager";
 
 /**
  * Updates the DOM element that represents current weather data with information
@@ -9,16 +6,20 @@ const forecastCardTemplate = document.getElementById('forecast-card-template');
  * @param {Object} weatherData - An object containing weather data from the Visual Crossing API.
  */
 export function displayCurrentWeatherData(weatherData) {
-    /**These values are not in the nested 'current' object,
-     * so they are queried and set manually
-     */
-    const address = currentWeatherCard.querySelector('.address');
-    const description = currentWeatherCard.querySelector('.description');
-    address.textContent = weatherData.address;
-    description.textContent = weatherData.description
+  const currentCardTemplate = document.getElementById("current-card-template");
+  const currentCardClone = currentCardTemplate.content.cloneNode(true);
+  const currentWeatherCard =
+    currentCardClone.querySelector(".current-data-card");
 
-    const current = weatherData.current;
-    updateWeatherCards(current, currentWeatherCard);
+  updateWeatherCards(weatherData, currentWeatherCard);
+  currentWeatherCard.querySelector(".sunrise img").src =
+    getDataThumbnail("sunrise");
+  currentWeatherCard.querySelector(".sunset img").src =
+    getDataThumbnail("sunset");
+
+  const currentCardDisplay = document.querySelector(".current-card-display");
+  currentCardDisplay.replaceChildren();
+  currentCardDisplay.appendChild(currentWeatherCard);
 }
 
 /**
@@ -27,47 +28,64 @@ export function displayCurrentWeatherData(weatherData) {
  * forecast data from that day.
  */
 export function displayForecastedData(weatherData) {
-    const forecastCardsDisplay = document.querySelector('.forecast-cards-display');
-    forecastCardsDisplay.replaceChildren();
-    
-    weatherData.forEach((day) => {
-        const forecastCardClone = forecastCardTemplate.content.cloneNode(true);
-        const article = forecastCardClone.querySelector('.forecast-data-card');
+  const forecastCardsDisplay = document.querySelector(
+    ".forecast-cards-display",
+  );
+  forecastCardsDisplay.replaceChildren();
 
-        updateWeatherCards(day, article);
-        forecastCardsDisplay.appendChild(article);
-    });
+  const forecastCardTemplate = document.getElementById(
+    "forecast-card-template",
+  );
+
+  weatherData.forEach((day) => {
+    const forecastCardClone = forecastCardTemplate.content.cloneNode(true);
+    const article = forecastCardClone.querySelector(".forecast-data-card");
+
+    updateWeatherCards(day, article);
+    forecastCardsDisplay.appendChild(article);
+  });
 }
 
 /**
  * Iterates through an objects Key, Value properties and queries a parent HTML Element
  * for child elements via the dataset attribute.
- * 
+ *
  * If the dataset value matches the Key from the object, then the elements textContent is updated
  * with that Key's Value.
- * 
+ *
  * @param {Object} weatherData - An object that stores various weather data values.
  * @param {HTMLElement} parentContainerElement - The parent container that holds the queried child
  * @returns {HTMLElement}
  */
 function updateWeatherCards(weatherData, parentContainerElement) {
-    for (const [key, value] of Object.entries(weatherData)) {
-        const element = parentContainerElement.querySelector(`[data-forecast="${key}"]`);
+  for (const [key, value] of Object.entries(weatherData)) {
+    const element = parentContainerElement.querySelector(
+      `[data-forecast="${key}"]`,
+    );
 
-        if (!element) {
-            console.error(`The corresponding element for ${key} could not be found.`);
-            continue;
-        }
-
-        if (element instanceof HTMLImageElement) {
-            const icon = getWeatherIcon(value);
-            element.src = icon;
-            continue;
-        }
-
-        if (element instanceof HTMLTimeElement) element.setAttribute('datetime', value);
-        element.textContent = value;
+    if (!element) {
+      console.error(`The corresponding element for ${key} could not be found.`);
+      continue;
     }
 
-    return parentContainerElement;
+    // This only updates image elements that have the data-forecast attribute,
+    // not image elements like the sunrise / sunset thumnails
+    if (element instanceof HTMLImageElement) {
+      const icon = getWeatherIcon(value);
+      element.src = icon;
+      continue;
+    }
+
+    if (element instanceof HTMLTimeElement)
+      element.setAttribute("datetime", value);
+
+    // Display a user friendly value
+    if (value === 'null') {
+      element.textContent = 'clear';
+      continue;
+    }
+    element.textContent = value;
+  }
+
+  return parentContainerElement;
 }

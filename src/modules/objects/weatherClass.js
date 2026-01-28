@@ -1,11 +1,24 @@
-import { formatTo12Hour, degreesToCardinal, titlecaseAddress, addCelciusSymbols, addPercentageSymbol, addKilometerSymbol, addCentimeterSymbol } from "../utils/dataFormatUtils";
+import {
+  formatTo12Hour,
+  degreesToCardinal,
+  titlecaseAddress,
+  addCelciusSymbols,
+  addPercentageSymbol,
+  addKilometerSymbol,
+  addMilimeterSymbol,
+  convertDateToShorthand,
+} from "../utils/dataFormatUtils";
 
 export function parseWeatherJson(weatherData) {
-  const currentConditions = stringifyValues(weatherData.currentConditions);
-  const forecastConditions = weatherData.days.map(day => stringifyValues(day));
+  const currentConditions = stringifyValues({
+    ...weatherData.currentConditions,
+    address: weatherData.resolvedAddress,
+  });
+
+  const forecastConditions = weatherData.days
+    .slice(1)
+    .map((day) => stringifyValues(day));
   return {
-    address: titlecaseAddress(weatherData.address),
-    description: weatherData.description,
     current: extractCurrentConditions(currentConditions),
     forecasted: extractForecastedConditions(forecastConditions),
   };
@@ -13,15 +26,15 @@ export function parseWeatherJson(weatherData) {
 
 function extractCurrentConditions(current) {
   return {
+    address: titlecaseAddress(current.address),
     conditions: current.conditions,
     dateTime: formatTo12Hour(current.datetime),
     feelsLike: addCelciusSymbols(current.feelslike),
     humidity: addPercentageSymbol(current.humidity),
     icon: current.icon,
-    precip: addCentimeterSymbol(current.precip),
+    precip: addMilimeterSymbol(current.precip),
     precipProb: addPercentageSymbol(current.precipprob),
     precipType: current.preciptype,
-    snow: addCentimeterSymbol(current.snow),
     sunrise: formatTo12Hour(current.sunrise),
     sunset: formatTo12Hour(current.sunset),
     temp: addCelciusSymbols(current.temp),
@@ -33,12 +46,11 @@ function extractCurrentConditions(current) {
 
 function extractForecastedConditions(days) {
   return days.map((day) => ({
-    date: day.datetime,
+    date: convertDateToShorthand(day.datetime),
     icon: day.icon,
-    precip: addCentimeterSymbol(day.precip),
+    precip: addMilimeterSymbol(day.precip),
     precipProb: addPercentageSymbol(day.precipprob),
     precipType: day.preciptype,
-    snow: addCentimeterSymbol(day.snow),
     temp: addCelciusSymbols(day.temp),
   }));
 }
