@@ -330,6 +330,7 @@ body {
 	gap: 0.5rem;
 
 	width: 100%;
+	overflow-x: auto;
 }
 
 /* Weather Card styling */
@@ -432,8 +433,14 @@ article {
 /* ==== Mobile card styling ==== */
 .forecast-cards-display {
 	display: flex;
+	flex-flow: row nowrap;
+	gap: 0.2rem;
 	padding: 0.6rem;
+
 	overflow-x: auto;
 	overflow-y: hidden;
 	-webkit-overflow-scrolling: touch;
+
+	background-color: var(--transparent-gray);
+	border-radius: var(--universal-radius);
 }
