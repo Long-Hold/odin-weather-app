@@ -355,6 +355,11 @@ article {
 	width: auto;
 }
 
+.icon {
+	height: 2.5rem;
+	width: auto;
+}
+
 /* ==== Current Data Card Styling ==== */
 .current-card-display {
 	display: flex;
@@ -381,8 +386,6 @@ article {
 	}
 	.icon {
 		grid-area: icon;
-		height: 2.5rem;
-		width: auto;
 		justify-self: left;
 	}
 	.conditions {
