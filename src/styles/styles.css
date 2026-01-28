@@ -449,11 +449,12 @@ article {
 
 .forecast-data-card {
 	text-align: center;
+
 	.forecast-data {
 		gap: 0.5rem;
 	}
+
 	.forecast-data > * {
-		background-color: var(--transparent-gray);
 		border-radius: var(--universal-radius);
 		width: 100%;
 	}
