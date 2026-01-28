@@ -19,14 +19,16 @@ export async function getWeatherData(location) {
   }
 
   const encodedLocation = encodeURI(location);
-
+  const forecastLength = createWeatherRangeString(6);
   const request =
     API_LINK +
     encodedLocation +
-    '/next7days' +
+    forecastLength +
     `?key=${API_KEY}` +
     UNIT_GROUP +
     API_GROUPS;
+
+  console.log(request);
 
   const result = await fetch(request);
   if (!result.ok) {
@@ -35,4 +37,29 @@ export async function getWeatherData(location) {
 
   const data = await result.json();
   return data;
+}
+
+/**
+ * Returns a formatted string that represents a range of dates to retrieve weather data of
+ * starting from tomorrow's date relative to the devices current date.
+ * 
+ * @param {int} range - The amount of days to include after tomorrow.
+ * @returns {string} A formatted string to insert into the Visual Crossing API.
+ * 
+ * @example
+ * //Returns the next 7 days worth of weather data starting from the day after the current date.
+ * // If today was January 1st, then the function returns '/<year>-01-02/<year>-01-08' (January 2nd to January 8th).
+ * createWeatherRangeString(6);
+ */
+function createWeatherRangeString(range) {
+  const startDate = new Date();
+  startDate.setDate(startDate.getDate() + 1);
+
+  const endDate = new Date();
+  endDate.setDate(startDate.getDate() + range);
+
+  const startDateISO = startDate.toISOString().split('T')[0];
+  const endDateISO = endDate.toISOString().split('T')[0];
+
+  return `/${startDateISO}/${endDateISO}`;
 }
