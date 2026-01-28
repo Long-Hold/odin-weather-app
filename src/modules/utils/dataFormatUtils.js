@@ -67,8 +67,8 @@ export function addCentimeterSymbol(item) {
 
 export function convertDateToShorthand(dateString) {
     const date = new Date(dateString);
-    const weekday = date.toLocaleDateString('en-US', { weekday: 'short' });
-    const day = date.toLocaleDateString('en-US', { day: 'numeric' });
+    const weekday = date.toLocaleDateString('en-US', { weekday: 'short', timeZone: 'UTC' });
+    const day = date.toLocaleDateString('en-US', { day: 'numeric', timeZone: 'UTC' });
     
     return `${weekday} ${day}`;
 }
