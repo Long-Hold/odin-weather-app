@@ -63,8 +63,8 @@ export function addKilometerSymbol(item) {
   return `${item} km/h`;
 }
 
-export function addCentimeterSymbol(item) {
-  return `${item}cm`;
+export function addMilimeterSymbol(item) {
+  return `${item}mm`;
 }
 
 export function convertDateToShorthand(dateString) {

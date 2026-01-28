@@ -5,7 +5,7 @@ import {
   addCelciusSymbols,
   addPercentageSymbol,
   addKilometerSymbol,
-  addCentimeterSymbol,
+  addMilimeterSymbol,
   convertDateToShorthand,
 } from "../utils/dataFormatUtils";
 
@@ -32,7 +32,7 @@ function extractCurrentConditions(current) {
     feelsLike: addCelciusSymbols(current.feelslike),
     humidity: addPercentageSymbol(current.humidity),
     icon: current.icon,
-    precip: addCentimeterSymbol(current.precip),
+    precip: addMilimeterSymbol(current.precip),
     precipProb: addPercentageSymbol(current.precipprob),
     precipType: current.preciptype,
     sunrise: formatTo12Hour(current.sunrise),
@@ -48,7 +48,7 @@ function extractForecastedConditions(days) {
   return days.map((day) => ({
     date: convertDateToShorthand(day.datetime),
     icon: day.icon,
-    precip: addCentimeterSymbol(day.precip),
+    precip: addMilimeterSymbol(day.precip),
     precipProb: addPercentageSymbol(day.precipprob),
     precipType: day.preciptype,
     temp: addCelciusSymbols(day.temp),
