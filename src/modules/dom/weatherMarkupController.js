@@ -81,7 +81,7 @@ function updateWeatherCards(weatherData, parentContainerElement) {
 
     // Display a user friendly value
     if (value === 'null') {
-      element.textContent = 'None';
+      element.textContent = 'clear';
       continue;
     }
     element.textContent = value;
