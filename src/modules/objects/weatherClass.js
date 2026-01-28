@@ -12,7 +12,7 @@ import {
 export function parseWeatherJson(weatherData) {
   const currentConditions = stringifyValues({
     ...weatherData.currentConditions,
-    address: weatherData.address,
+    address: weatherData.resolvedAddress,
   });
 
   const forecastConditions = weatherData.days
@@ -35,7 +35,6 @@ function extractCurrentConditions(current) {
     precip: addCentimeterSymbol(current.precip),
     precipProb: addPercentageSymbol(current.precipprob),
     precipType: current.preciptype,
-    snow: addCentimeterSymbol(current.snow),
     sunrise: formatTo12Hour(current.sunrise),
     sunset: formatTo12Hour(current.sunset),
     temp: addCelciusSymbols(current.temp),
@@ -52,7 +51,6 @@ function extractForecastedConditions(days) {
     precip: addCentimeterSymbol(day.precip),
     precipProb: addPercentageSymbol(day.precipprob),
     precipType: day.preciptype,
-    snow: addCentimeterSymbol(day.snow),
     temp: addCelciusSymbols(day.temp),
   }));
 }
