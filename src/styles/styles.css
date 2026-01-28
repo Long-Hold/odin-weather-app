@@ -465,3 +465,19 @@ article {
     width: 100%;
   }
 }
+
+/* ==== Animations for the cards ==== */
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%); /* Start off-screen right */
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0); /* End in view */
+    opacity: 1;
+  }
+}
+
+.current-data-card, .forecast-data-card {
+	animation: slideIn 1s forwards ease-out;
+}
