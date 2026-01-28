@@ -327,6 +327,7 @@ body {
 	display: flex;
 	flex-flow: column nowrap;
 	place-content: center;
+	align-items: center;
 	gap: 0.5rem;
 
 	width: 100%;
@@ -445,6 +446,7 @@ article {
 
 	background-color: var(--transparent-gray);
 	border-radius: var(--universal-radius);
+	width: clamp(300px, 70%, 750px);
 }
 
 .forecast-data-card {
