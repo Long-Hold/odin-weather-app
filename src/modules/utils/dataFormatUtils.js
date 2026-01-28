@@ -12,7 +12,7 @@
  */
 export function formatTo12Hour(time24) {
     if (!time24 || typeof time24 !== 'string') {
-        throw new Error('Invalid time format');
+        throw new Error(`Invalid time format. Expected: String. Received: ${typeof time24}`);
     }
 
     const [hoursStr, minutesStr] = time24.split(':');
