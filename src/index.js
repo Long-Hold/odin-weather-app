@@ -28,3 +28,20 @@ form.addEventListener("submit", async (event) => {
     form.reset();
   }
 });
+
+
+window.addEventListener('DOMContentLoaded', async () => {
+  const defaultLocation = 'Hamilton, Ontario';
+  try {
+    const weatherData = await getWeatherData(defaultLocation);
+
+    const weatherObject = parseWeatherJson(weatherData);
+
+    displayCurrentWeatherData(weatherObject.current);
+    displayForecastedData(weatherObject.forecasted);
+  } catch (error) {
+    console.error(
+      `An error was caught while retrieving weather data. ${error}`,
+    );
+  }
+});
