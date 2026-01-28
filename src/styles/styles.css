@@ -455,7 +455,8 @@ article {
 
 .forecast-data-card {
   text-align: center;
-
+  flex: 1 1 0;
+  min-width: 85px;
   .forecast-data {
     gap: 0.5rem;
   }
