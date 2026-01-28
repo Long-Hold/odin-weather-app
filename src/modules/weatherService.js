@@ -19,14 +19,14 @@ export async function getWeatherData(location) {
   }
 
   const encodedLocation = encodeURI(location);
-  const forecastLength = createWeatherRangeString(6);
+  const forecastLength = createWeatherRangeString(7);
   const request =
     API_LINK +
     encodedLocation +
-    forecastLength +
     `?key=${API_KEY}` +
     UNIT_GROUP +
-    API_GROUPS;
+    API_GROUPS +
+    "&include=current,days";;
 
   console.log(request);
 
@@ -53,7 +53,7 @@ export async function getWeatherData(location) {
  */
 function createWeatherRangeString(range) {
   const startDate = new Date();
-  startDate.setDate(startDate.getDate() + 1);
+  startDate.setDate(startDate.getDate());
 
   const endDate = new Date();
   endDate.setDate(startDate.getDate() + range);
