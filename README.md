@@ -25,7 +25,7 @@ A responsive weather application providing current conditions and 7-day forecast
 git clone https://github.com/long-hold/odin-weather-app.git
 cd odin-weather-app
 npm install
-npm start        # Development
+npm run dev        # Development
 npm run build    # Production
 ```
 
