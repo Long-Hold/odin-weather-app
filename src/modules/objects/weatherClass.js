@@ -63,6 +63,14 @@ function extractForecastedConditions(days) {
 function stringifyValues(object) {
   const results = {};
   for (const [key, value] of Object.entries(object)) {
+    if (value === null) {
+      if (key === 'preciptype') {
+        results[key] = 'clear';
+      } else {
+        results[key] = '0';
+      }
+      continue;
+    }
     results[key] = `${value}`.trim();
   }
 
