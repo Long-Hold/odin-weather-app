@@ -79,11 +79,6 @@ function updateWeatherCards(weatherData, parentContainerElement) {
     if (element instanceof HTMLTimeElement)
       element.setAttribute("datetime", value);
 
-    // Display a user friendly value
-    if (value === 'null') {
-      element.textContent = 'clear';
-      continue;
-    }
     element.textContent = value;
   }
 
