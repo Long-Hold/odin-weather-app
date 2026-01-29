@@ -1,0 +1,503 @@
+/*! modern-normalize v3.0.1 | MIT License | https://github.com/sindresorhus/modern-normalize */
+
+/*
+Document
+========
+*/
+
+/**
+Use a better box model (opinionated).
+*/
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+html {
+  /* Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3) */
+  font-family:
+    system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.15; /* 1. Correct the line height in all browsers. */
+  -webkit-text-size-adjust: 100%; /* 2. Prevent adjustments of font size after orientation changes in iOS. */
+  tab-size: 4; /* 3. Use a more readable tab size (opinionated). */
+}
+
+/*
+Sections
+========
+*/
+
+body {
+  margin: 0; /* Remove the margin in all browsers. */
+}
+
+/*
+Text-level semantics
+====================
+*/
+
+/**
+Add the correct font weight in Chrome and Safari.
+*/
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+1. Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
+2. Correct the odd 'em' font sizing in all browsers.
+*/
+
+code,
+kbd,
+samp,
+pre {
+  font-family:
+    ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+Add the correct font size in all browsers.
+*/
+
+small {
+  font-size: 80%;
+}
+
+/**
+Prevent 'sub' and 'sup' elements from affecting the line height in all browsers.
+*/
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/*
+Tabular data
+============
+*/
+
+/**
+Correct table border color inheritance in Chrome and Safari. (https://issues.chromium.org/issues/40615503, https://bugs.webkit.org/show_bug.cgi?id=195016)
+*/
+
+table {
+  border-color: currentcolor;
+}
+
+/*
+Forms
+=====
+*/
+
+/**
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+*/
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+Correct the inability to style clickable types in iOS and Safari.
+*/
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+/**
+Remove the padding so developers are not caught out when they zero out 'fieldset' elements in all browsers.
+*/
+
+legend {
+  padding: 0;
+}
+
+/**
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+
+progress {
+  vertical-align: baseline;
+}
+
+/**
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+
+[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to 'inherit' in Safari.
+*/
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/*
+Interactive
+===========
+*/
+
+/*
+Add the correct display in Chrome and Safari.
+*/
+
+summary {
+  display: list-item;
+}
+
+/* My styling */
+
+:root {
+  --transparent-gray: rgba(0, 0, 0, 0.45);
+  --darker-white: rgb(221, 220, 220);
+  --universal-padding: 0.5rem;
+  --universal-radius: 0.6rem;
+  /* Used for consistent, similar sizing for some elements like search bars and cards.
+	This allows me to enforce the same sizes on this elements for aesthetic purposes.
+	 */
+  --universal-dynamic-width: clamp(300px, 50%, 500px);
+}
+.templates {
+  display: none;
+}
+
+/* ======
+ELEMENT RESETS
+=====
+ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+/* ========= */
+
+input,
+button,
+#location-form {
+  border: none;
+  border-radius: var(--universal-radius);
+  padding: 0.4em;
+}
+
+input {
+  background-color: inherit;
+  color: inherit;
+  outline: none;
+}
+
+button[type="submit"] {
+  transition: 0.3s ease;
+  background-color: rgb(49, 149, 188);
+  mask: url(1ed5286baea533a6e979.svg) center / contain
+    no-repeat;
+  -webkit-mask: url(1ed5286baea533a6e979.svg) center / contain
+    no-repeat;
+}
+
+button:hover,
+button:focus {
+  transition: 0.3s ease;
+  filter: brightness(120%);
+  cursor: pointer;
+}
+
+button:active {
+  filter: brightness(90%);
+}
+
+body {
+  padding: var(--universal-padding);
+
+  background: url(523d0f250dd9b29c3967.JPEG) no-repeat center
+    center fixed;
+  background-color: grey;
+
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  gap: 0.5rem;
+  grid-template-areas:
+    "searchbar"
+    "data";
+}
+
+.location-search {
+  grid-area: searchbar;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  padding-top: 0.5rem;
+}
+
+#location-form {
+  background-color: var(--darker-white);
+  width: clamp(300px, 50%, 500px);
+  height: 100%;
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.2rem;
+
+  input,
+  button {
+    height: 100%;
+  }
+
+  button {
+    width: 3rem;
+  }
+
+  input {
+    flex: 1;
+  }
+}
+
+/* Card containers styling */
+.data-display {
+  grid-area: data;
+  place-self: center;
+  display: flex;
+  flex-flow: column nowrap;
+  place-content: center;
+  align-items: center;
+  gap: 0.5rem;
+
+  width: 100%;
+  overflow-x: auto;
+}
+
+.data-display .current-card-display:empty,
+.data-display .forecast-cards-display:empty {
+  display: none;
+}
+
+/* Weather Card styling */
+
+.current-card-display,
+.forecast-cards-display {
+  width: 100%;
+}
+
+article {
+  background-color: var(--transparent-gray);
+  color: whitesmoke;
+  border-radius: var(--universal-radius);
+  width: var(--universal-dynamic-width);
+  display: grid;
+  > * {
+    padding: 0.8rem;
+  }
+}
+
+.thumbnail {
+  height: 1.5rem;
+  width: auto;
+}
+
+.icon {
+  height: 2.5rem;
+  width: auto;
+}
+
+/* ==== SHARED CARD STYLE ====  */
+.current-card-body > *,
+.forecast-data-card > * {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.2rem;
+
+  font-size: 0.9rem;
+}
+/* =========================== */
+
+/* ==== Current Data Card Styling ==== */
+.current-card-display {
+  display: flex;
+  place-content: center;
+}
+.current-data-card .card-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  row-gap: 1rem;
+  align-items: end;
+
+  grid-template-areas:
+    "address time"
+    "icon conditions";
+
+  .address {
+    grid-area: address;
+    justify-self: left;
+  }
+  .date-time {
+    grid-area: time;
+    justify-self: right;
+  }
+  .icon {
+    grid-area: icon;
+    justify-self: left;
+  }
+  .conditions {
+    grid-area: conditions;
+    justify-self: right;
+  }
+}
+
+/* ==== Styling for sub-data cards on both current and forecast cards ==== */
+.current-card-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 0.5rem;
+
+  /* Encase all data blocks in their own containers,
+	exlcuding any headers */
+  > * > *:not(h3) {
+    background-color: var(--transparent-gray);
+    border-radius: var(--universal-radius);
+    padding: var(--universal-padding);
+    width: 100%;
+    height: 100%;
+    align-content: center;
+  }
+}
+
+.current-card-body .sunrise-sunset-data {
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+  }
+}
+
+/* ==== Mobile card styling ==== */
+.forecast-cards-display {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 0.2rem;
+  padding: 0.6rem;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+
+  background-color: var(--transparent-gray);
+  border-radius: var(--universal-radius);
+  width: clamp(300px, 70%, 750px);
+}
+
+.forecast-data-card {
+  text-align: center;
+  flex: 1 1 0;
+  min-width: 85px;
+  .forecast-data {
+    gap: 0.5rem;
+  }
+
+  .forecast-data > * {
+    border-radius: var(--universal-radius);
+    width: 100%;
+  }
+}
+
+/* ==== Animations for the cards ==== */
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%); /* Start off-screen right */
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0); /* End in view */
+    opacity: 1;
+  }
+}
+
+.current-data-card, .forecast-data-card {
+	animation: slideIn 1s forwards ease-out;
+}
+
+/* ==== Loading widget and animation ==== */
+.loader {
+    border: 8px solid #f3f3f3; /* Light grey background border */
+    border-top: 8px solid #3498db; /* Blue top border that will spin */
+    border-radius: 50%; /* Make it a perfect circle */
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite; /* Apply the spin animation */
+    position: fixed;
+    inset: 0;
+    margin: auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); } /* Start at 0 degrees rotation */
+    100% { transform: rotate(360deg); } /* End at 360 degrees rotation */
+}
+
