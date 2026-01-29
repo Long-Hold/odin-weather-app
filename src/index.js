@@ -5,10 +5,12 @@ import {
   displayForecastedData,
 } from "./modules/dom/weatherMarkupController";
 import { getWeatherData } from "./modules/weatherService";
+import { removeLoadingIcon, renderLoadingIcon } from "./modules/dom/loadingIconController";
 
 const form = document.querySelector("form");
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
+  const loadingIcon = renderLoadingIcon();
   const formData = new FormData(event.target);
   const location = formData.get("location").trim().toLowerCase();
 
@@ -25,6 +27,7 @@ form.addEventListener("submit", async (event) => {
       `An error was caught while retrieving weather data. ${error}`,
     );
   } finally {
+    removeLoadingIcon(loadingIcon);
     form.reset();
   }
 });
