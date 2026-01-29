@@ -64,10 +64,10 @@ function stringifyValues(object) {
   const results = {};
   for (const [key, value] of Object.entries(object)) {
     if (value === null) {
-      if (key === 'preciptype') {
-        results[key] = 'clear';
+      if (key === "preciptype") {
+        results[key] = "clear";
       } else {
-        results[key] = '0';
+        results[key] = "0";
       }
       continue;
     }

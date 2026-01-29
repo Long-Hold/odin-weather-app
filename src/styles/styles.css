@@ -10,11 +10,10 @@ Use a better box model (opinionated).
 */
 
 @font-face {
-    font-family: 'fira_sansregular';
-    src: url('../fonts/firasans-regular-webfont.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-
+  font-family: "fira_sansregular";
+  src: url("../fonts/firasans-regular-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }
 
 *,
@@ -26,8 +25,8 @@ Use a better box model (opinionated).
 html {
   /* Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3) */
   font-family:
-    "fira_sansregular", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji";
+    "fira_sansregular", system-ui, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   line-height: 1.15; /* 1. Correct the line height in all browsers. */
   -webkit-text-size-adjust: 100%; /* 2. Prevent adjustments of font size after orientation changes in iOS. */
   tab-size: 4; /* 3. Use a more readable tab size (opinionated). */
@@ -487,24 +486,29 @@ article {
   }
 }
 
-.current-data-card, .forecast-data-card {
-	animation: slideIn 1s forwards ease-out;
+.current-data-card,
+.forecast-data-card {
+  animation: slideIn 1s forwards ease-out;
 }
 
 /* ==== Loading widget and animation ==== */
 .loader {
-    border: 8px solid #f3f3f3; /* Light grey background border */
-    border-top: 8px solid #3498db; /* Blue top border that will spin */
-    border-radius: 50%; /* Make it a perfect circle */
-    width: 60px;
-    height: 60px;
-    animation: spin 2s linear infinite; /* Apply the spin animation */
-    position: fixed;
-    inset: 0;
-    margin: auto;
+  border: 8px solid #f3f3f3; /* Light grey background border */
+  border-top: 8px solid #3498db; /* Blue top border that will spin */
+  border-radius: 50%; /* Make it a perfect circle */
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite; /* Apply the spin animation */
+  position: fixed;
+  inset: 0;
+  margin: auto;
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); } /* Start at 0 degrees rotation */
-    100% { transform: rotate(360deg); } /* End at 360 degrees rotation */
+  0% {
+    transform: rotate(0deg);
+  } /* Start at 0 degrees rotation */
+  100% {
+    transform: rotate(360deg);
+  } /* End at 360 degrees rotation */
 }

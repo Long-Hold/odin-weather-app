@@ -36,6 +36,7 @@ Replace `API_KEY` in `src/modules/weatherService.js` with your [Visual Crossing 
 ## Architecture
 
 Three-layer design with separation of concerns:
+
 - `weatherService.js` - API calls
 - `weatherClass.js` - Data transformation
 - `weatherMarkupController.js` - DOM updates

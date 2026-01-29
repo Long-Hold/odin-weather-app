@@ -5,7 +5,10 @@ import {
   displayForecastedData,
 } from "./modules/dom/weatherMarkupController";
 import { getWeatherData } from "./modules/weatherService";
-import { removeLoadingIcon, renderLoadingIcon } from "./modules/dom/loadingIconController";
+import {
+  removeLoadingIcon,
+  renderLoadingIcon,
+} from "./modules/dom/loadingIconController";
 
 const form = document.querySelector("form");
 form.addEventListener("submit", async (event) => {
@@ -31,9 +34,8 @@ form.addEventListener("submit", async (event) => {
   }
 });
 
-
-window.addEventListener('DOMContentLoaded', async () => {
-  const defaultLocation = 'Hamilton, Ontario';
+window.addEventListener("DOMContentLoaded", async () => {
+  const defaultLocation = "Hamilton, Ontario";
   try {
     const weatherData = await getWeatherData(defaultLocation);
 
