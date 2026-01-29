@@ -5,19 +5,20 @@ import {
   displayForecastedData,
 } from "./modules/dom/weatherMarkupController";
 import { getWeatherData } from "./modules/weatherService";
+import { removeLoadingIcon, renderLoadingIcon } from "./modules/dom/loadingIconController";
 
 const form = document.querySelector("form");
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
+  const loadingIcon = renderLoadingIcon();
   const formData = new FormData(event.target);
   const location = formData.get("location").trim().toLowerCase();
 
   try {
     const weatherData = await getWeatherData(location);
-    console.log(weatherData);
+
     const weatherObject = parseWeatherJson(weatherData);
-    console.log("Current Conditions: ", weatherObject.current);
-    console.log("Forecasted Conditions: ", weatherObject.forecasted);
+
     displayCurrentWeatherData(weatherObject.current);
     displayForecastedData(weatherObject.forecasted);
   } catch (error) {
@@ -25,6 +26,24 @@ form.addEventListener("submit", async (event) => {
       `An error was caught while retrieving weather data. ${error}`,
     );
   } finally {
+    removeLoadingIcon(loadingIcon);
     form.reset();
+  }
+});
+
+
+window.addEventListener('DOMContentLoaded', async () => {
+  const defaultLocation = 'Hamilton, Ontario';
+  try {
+    const weatherData = await getWeatherData(defaultLocation);
+
+    const weatherObject = parseWeatherJson(weatherData);
+
+    displayCurrentWeatherData(weatherObject.current);
+    displayForecastedData(weatherObject.forecasted);
+  } catch (error) {
+    console.error(
+      `An error was caught while retrieving weather data. ${error}`,
+    );
   }
 });

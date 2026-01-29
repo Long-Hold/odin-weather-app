@@ -482,3 +482,21 @@ article {
 .current-data-card, .forecast-data-card {
 	animation: slideIn 1s forwards ease-out;
 }
+
+/* ==== Loading widget and animation ==== */
+.loader {
+    border: 8px solid #f3f3f3; /* Light grey background border */
+    border-top: 8px solid #3498db; /* Blue top border that will spin */
+    border-radius: 50%; /* Make it a perfect circle */
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite; /* Apply the spin animation */
+    position: fixed;
+    inset: 0;
+    margin: auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); } /* Start at 0 degrees rotation */
+    100% { transform: rotate(360deg); } /* End at 360 degrees rotation */
+}

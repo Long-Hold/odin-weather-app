@@ -28,8 +28,6 @@ export async function getWeatherData(location) {
     UNIT_GROUP +
     API_GROUPS;
 
-  console.log(request);
-
   const result = await fetch(request);
   if (!result.ok) {
     throw new Error(result.status);
