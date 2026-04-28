@@ -257,7 +257,8 @@ input {
 
 button[type="submit"] {
   transition: 0.3s ease;
-  background-color: rgb(49, 149, 188);
+  /* background-color: rgb(49, 149, 188); */
+  background-color: red;
   mask: url(1ed5286baea533a6e979.svg) center / contain
     no-repeat;
   -webkit-mask: url(1ed5286baea533a6e979.svg) center / contain
