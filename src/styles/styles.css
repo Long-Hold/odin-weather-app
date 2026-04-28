@@ -257,8 +257,7 @@ input {
 
 button[type="submit"] {
   transition: 0.3s ease;
-  /* background-color: rgb(49, 149, 188); */
-  background-color: red;
+  background-color: rgb(49, 149, 188);
   mask: url("../assets/interactables/search-icon.svg") center / contain
     no-repeat;
   -webkit-mask: url("../assets/interactables/search-icon.svg") center / contain
